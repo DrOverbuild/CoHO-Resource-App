@@ -1,0 +1,4 @@
+Pods/*
+*.cer
+*.certSigningRequest
+.DS_Store
