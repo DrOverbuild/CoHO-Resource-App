@@ -14,6 +14,9 @@ class CategoryCellTableViewCell: UITableViewCell {
 	@IBOutlet weak var catNameLabel: UILabel!
 	@IBOutlet weak var itemsLabel: UILabel!
 	
+	// only used for search
+	var resource: Resource!
+	
 	var level: OrganizationalLevel!
 	
     override func awakeFromNib() {
