@@ -12,6 +12,21 @@ class OrganizationalLevel: NSObject {
 	var name: String = ""
 	var itemDesc: String?
 	var id: Int
+	var icon: String?
+	
+	var iconImage: UIImage? {
+		get {
+			if let icon = self.icon {
+				if let range = icon.range(of: "/") {
+					let imageString = icon[range.upperBound...]
+					if let image = UIImage(named: String(imageString)) {
+						return image
+					}
+				}
+			}
+			return nil
+		}
+	}
 	
 	var resources = [Resource]()
 	
@@ -19,5 +34,12 @@ class OrganizationalLevel: NSObject {
 		self.name = name
 		self.itemDesc = itemDesc
 		self.id = id
+	}
+	
+	init(name: String, itemDesc: String, id: Int, icon: String) {
+		self.name = name
+		self.itemDesc = itemDesc
+		self.id = id
+		self.icon = icon
 	}
 }

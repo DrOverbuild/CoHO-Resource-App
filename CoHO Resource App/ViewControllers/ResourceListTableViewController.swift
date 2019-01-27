@@ -59,6 +59,13 @@ class ResourceListTableViewController: UITableViewController {
       	let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ResourceTableViewCell
 			cell.label.text = resources[indexPath.row / 2].name
             cell.resource = resources[indexPath.row / 2]
+			
+			if let cat = resources[indexPath.row / 2].categories.first {
+				if let icon = cat.iconImage {
+					cell.iconView.image = icon
+				}
+			}
+			
 			return cell
 		} else {
 			return tableView.dequeueReusableCell(withIdentifier: "separator", for: indexPath)

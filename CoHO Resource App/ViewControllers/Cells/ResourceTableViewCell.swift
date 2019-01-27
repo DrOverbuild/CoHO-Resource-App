@@ -11,7 +11,10 @@ import UIKit
 class ResourceTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var label: UILabel!
-    var resource: Resource!
+	@IBOutlet weak var iconView: UIImageView!
+	var resource: Resource!
+	
+	
 	
 	override func awakeFromNib() {
         super.awakeFromNib()

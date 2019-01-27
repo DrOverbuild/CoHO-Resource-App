@@ -13,6 +13,7 @@ class CategoryCellTableViewCell: UITableViewCell {
 	
 	@IBOutlet weak var catNameLabel: UILabel!
 	@IBOutlet weak var itemsLabel: UILabel!
+	@IBOutlet weak var iconView: UIImageView!
 	
 	// only used for search
 	var resource: Resource!
@@ -33,6 +34,10 @@ class CategoryCellTableViewCell: UITableViewCell {
 	func populateWithData(level: OrganizationalLevel) {
 		self.level = level
 		self.catNameLabel.text = level.name
+		
+		if let image = self.level.iconImage {
+			self.iconView.image = image
+		}
 		
 		let count = level.resources.count
 		

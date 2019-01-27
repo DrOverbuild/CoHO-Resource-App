@@ -78,8 +78,6 @@ class API {
 	}
 	
 	func loadDataFromServer(delegate: AppDelegate) {
-		// TODO: Load cohoData from NSKeyedArchiver if fetchJSON fails
-		
 		fetchJSON(url: "fulldatabase.php", completion: {dictOp in
 			if let dict = dictOp {
 				let categories = self.loadAllCategories(fromDict: dict)

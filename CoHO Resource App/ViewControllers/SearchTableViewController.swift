@@ -51,9 +51,12 @@ class SearchTableViewController: UITableViewController {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CategoryCellTableViewCell
 		
-		print(indexPath.row)
-		
 		cell.catNameLabel.text = filteredResources[indexPath.row / 2].name
+		
+		if let image = filteredResources[indexPath.row / 2].categories.first?.iconImage {
+			cell.iconView.image = image
+			
+		}
 		
 		var catstr = ""
 		
