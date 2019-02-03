@@ -77,6 +77,10 @@ class ResourceTableViewController: UITableViewController {
 			}
 		}
 		
+		// report function
+		let reportCell = tableView.dequeueReusableCell(withIdentifier: "reportCell")!
+		cells.append(reportCell)
+		
 	}
 	
 	func titleCell(text: String) -> TitleTableViewCell {
@@ -153,6 +157,10 @@ class ResourceTableViewController: UITableViewController {
 		
 		if let conCell = cell as? ContactTableViewCell {
 			conCell.onTap(viewController: self)
+		}
+		
+		if let reportCell = cell as? ReportTableViewCell {
+			reportCell.onTap(viewController: self)
 		}
 	}
 }
