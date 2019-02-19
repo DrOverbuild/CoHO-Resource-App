@@ -56,6 +56,39 @@ class API {
 	func fetchJSON(url: String, completion: @escaping ([String:Any]?)->()) {
 		var dictionary: [String:Any]?
 		
+		// check last updated
+		let currentDate = Date()
+		
+		if let lastUpdated = UserDefaults.standard.object(forKey: "lastUpdated") as? Date {
+			if let updateFrequncy = UserDefaults.standard.string(forKey: "updateFrequency") {
+				var interval: DateInterval!
+				
+				switch updateFrequncy {
+				case "weekly":
+					let weekFromLastUpdated = Calendar.current.date(byAdding: .day, value: 7, to: lastUpdated)!
+					interval = DateInterval(start: lastUpdated, end: weekFromLastUpdated)
+					
+					if interval.contains(currentDate) {
+						return completion(nil)
+					}
+					
+					break
+				case "monthly":
+					let weekFromLastUpdated = Calendar.current.date(byAdding: .day, value: 30, to: lastUpdated)!
+					interval = DateInterval(start: lastUpdated, end: weekFromLastUpdated)
+										
+					if interval.contains(currentDate) {
+						return completion(nil)
+					}
+					
+					break
+				default:
+					break
+				}
+			}
+			
+		}
+		
 		let url = URL(string: "https://cohoresourcebook.org/api/" + url)
 		URLSession.shared.dataTask(with:url!) {(data, response, error) in
 			guard let data = data, error == nil else {
@@ -67,6 +100,10 @@ class API {
 			
 			do {
 				dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:Any]
+				// update last updated
+				let currentDate = Date()
+				UserDefaults.standard.set(currentDate, forKey: "lastUpdated")
+				
 				return completion(dictionary)
 			} catch let error as NSError {
 				print("Error fetching data")

@@ -22,23 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 		
 		self.api = API();
 		self.api.loadDataFromServer(delegate: self)
-		
-		let backgroundImage = UIImage(named: "blueyellowbkgd4")
-		let imageView = UIImageView(frame: window!.bounds)
-		imageView.image = backgroundImage
-		imageView.contentMode = .scaleAspectFill
-		imageView.bounds = window!.bounds
-		imageView.backgroundColor = UIColor(displayP3Red: 30/255, green: 50/255, blue: 49/255, alpha: 1.0)
-		
-		window!.addSubview(imageView)
-		
-		// this is where we load data from server
-		
-		
-//        let splitViewController = window!.rootViewController as! UISplitViewController
-//        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-//        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-//        splitViewController.delegate = self
+
         return true
     }
 
