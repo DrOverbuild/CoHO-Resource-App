@@ -15,7 +15,7 @@ class County: OrganizationalLevel, NSCoding {
 		coder.encode(self.id, forKey: "id")
 		coder.encode(self.itemDesc, forKey: "desc")
 		coder.encode(self.name, forKey: "name")
-		coder.encode(self.name, forKey: "icon")
+		coder.encode(self.icon, forKey: "icon")
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
