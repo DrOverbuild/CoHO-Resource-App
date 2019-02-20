@@ -2,3 +2,4 @@ Pods/*
 *.cer
 *.certSigningRequest
 .DS_Store
+CoHO Resource App/API/Auth.swift
