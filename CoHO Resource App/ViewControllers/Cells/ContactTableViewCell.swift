@@ -36,7 +36,7 @@ class ContactTableViewCell: UITableViewCell, MFMailComposeViewControllerDelegate
 				if contact.name.isEmpty {
 					title.text = "Fax"
 				}
-				icon.image = UIImage(named: "fax")
+				icon.image = UIImage(named: "faxcontacticon")
 				// fax/unknown
 			}
 		}

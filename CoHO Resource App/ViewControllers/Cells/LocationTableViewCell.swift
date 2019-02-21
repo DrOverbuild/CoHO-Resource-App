@@ -42,8 +42,6 @@ class LocationTableViewCell: UITableViewCell {
     
     
     @objc func onTap(viewController: UIViewController) {
-        print("Opening in maps")
-        
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let copyAction = UIAlertAction(title: "Copy", style: .default, handler: {(action) in
             var address = "\(self.street1.text!), \(self.street2.text!)"

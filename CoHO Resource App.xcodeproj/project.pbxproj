@@ -203,8 +203,8 @@
 		A49E2EB921763FC1009383E3 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				A49E2EBA21763FEE009383E3 /* API.swift */,
 				A4089D20221DF64D001936FF /* Auth.swift */,
+				A49E2EBA21763FEE009383E3 /* API.swift */,
 				A4089D22221DF9A3001936FF /* Util.swift */,
 			);
 			path = API;

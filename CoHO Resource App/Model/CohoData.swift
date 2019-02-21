@@ -58,7 +58,6 @@ class CohoData: NSObject, NSCoding {
 			let url = URL(fileURLWithPath: filePath)
 			try archive.write(to: url)
 		} catch {
-			print("Save data error.")
 		}
 	}
 	
@@ -69,11 +68,9 @@ class CohoData: NSObject, NSCoding {
 			if let cohodata = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? CohoData {
 				return cohodata
 			} else {
-				print("Data decoding error")
 			}
 		
 		} catch {
-			print("Load data error")
 		}
 		
 		return nil

@@ -23,7 +23,6 @@ class County: OrganizationalLevel, NSCoding {
 			let desc = aDecoder.decodeObject(forKey: "desc") as? String,
 			let icon = aDecoder.decodeObject(forKey: "icon") as? String
 			else {
-				print("Could not decode County object")
 				return nil
 		}
 		

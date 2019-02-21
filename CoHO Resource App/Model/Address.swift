@@ -81,7 +81,6 @@ class Address: NSObject, NSCoding {
     func get2DCoordinates(locationCompletionHandler: @escaping (CLLocation?) -> Void) {
         let geoCoder = CLGeocoder()
         let address = "\(street1), \(city), \(state) \(zip)"
-        print(address)
         geoCoder.geocodeAddressString(address, completionHandler: {(placemarks, error) in
             guard
                 let placemarks = placemarks,
