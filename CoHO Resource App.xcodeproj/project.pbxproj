@@ -530,13 +530,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon2;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RN693TYBDK;
+				DEVELOPMENT_TEAM = LSL6M5KRPR;
 				INFOPLIST_FILE = "CoHO Resource App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jasperreddin.CoHO-Resource-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.coho58.Resource-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -551,13 +551,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon2;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RN693TYBDK;
+				DEVELOPMENT_TEAM = LSL6M5KRPR;
 				INFOPLIST_FILE = "CoHO Resource App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jasperreddin.CoHO-Resource-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.coho58.Resource-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

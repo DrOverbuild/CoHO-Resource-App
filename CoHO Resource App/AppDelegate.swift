@@ -17,7 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+		
+		// setup default settings
+		if UserDefaults.standard.string(forKey: "updateFrequency") == nil {
+			UserDefaults.standard.set("weekly", forKey: "updateFrequency")
+		}
+		
         UIApplication.shared.statusBarStyle = .lightContent
 		
 		self.api = API();

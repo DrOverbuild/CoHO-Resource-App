@@ -143,6 +143,17 @@ class API {
 	func closeLoadWindow(delegate: AppDelegate, completion: (() -> Void)? = nil) {
 		DispatchQueue.main.async {
 			if let viewController = delegate.window?.rootViewController as? InitialViewController {
+				// end refreshing
+				if let initialVC = delegate.window?.rootViewController as? InitialViewController {
+					for vc in initialVC.viewControllers! {
+						if let categoriesView = (vc as! UINavigationController).topViewController as? CategoriesTableViewController {
+							if let refreshControl = categoriesView.refreshControl {
+								refreshControl.endRefreshing()
+							}
+						}
+					}
+				}
+				
 				viewController.dismiss(animated: true, completion: completion)
                 
                 // sometimes downloading data is too slow and the categories
