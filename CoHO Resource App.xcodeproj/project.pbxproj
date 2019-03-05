@@ -213,12 +213,12 @@
 		A4B4AF372183AF0D00741055 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				A4B7EB9121A885D600350852 /* ContactTableViewCell.swift */,
 				A4B4AF382183AF2800741055 /* CategoryCellTableViewCell.swift */,
 				A461A8472190F994003F46E0 /* ResourceTableViewCell.swift */,
 				A4B7EB8B21A8858000350852 /* TitleTableViewCell.swift */,
 				A4B7EB8D21A8859700350852 /* InformationTableViewCell.swift */,
 				A4B7EB8F21A885A600350852 /* LocationTableViewCell.swift */,
-				A4B7EB9121A885D600350852 /* ContactTableViewCell.swift */,
 				A468DA8A220669EC0075E9F4 /* ReportTableViewCell.swift */,
 			);
 			path = Cells;

@@ -53,8 +53,9 @@ class ResourceTableViewController: UITableViewController {
 		}
 
 		// information section
-		if !resource.services.isEmpty && !resource.documentation.isEmpty &&
-			!resource.hours.isEmpty && !resource.desc.isEmpty { // only add heading cell for infomration if information exists
+		if !(resource.services.isEmpty && resource.documentation.isEmpty
+			&& resource.hours.isEmpty && resource.desc.isEmpty) {
+			// only add heading cell for infomration if information exists
 			
 			cells.append(titleCell(text: "Information"))
 		
