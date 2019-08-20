@@ -75,4 +75,43 @@ class CohoData: NSObject, NSCoding {
 		
 		return nil
 	}
+    
+    func exportJSON(delegate: AppDelegate) {
+        
+        var categories = [[String: Any]]()
+        for category in self.categories {
+            categories.append(category.dictRepresentation())
+        }
+        
+        var counties = [[String: Any]]()
+        for county in self.counties {
+            counties.append(county.dictRepresentation())
+        }
+        
+        var resources = [[String: Any]]()
+        for resource in self.resources {
+            resources.append(resource.dictRepresentation())
+        }
+        
+        let data: [String : Any] = ["categories" : categories, "counties" : counties, "resources" : resources]
+        
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        let filename = "\(documentsDirectory)/cohodata.json"
+        let fileURL = URL(fileURLWithPath: filename)
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+            try jsonData.write(to: fileURL, options: .atomic)
+            
+            let share = UIActivityViewController(activityItems: [fileURL], applicationActivities: [])
+            
+            if let viewController = delegate.window?.rootViewController {
+                viewController.present(share, animated: true)
+            }
+            
+        } catch {
+            print("Error saving JSON file.")
+        }
+    }
 }

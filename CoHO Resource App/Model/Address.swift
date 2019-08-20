@@ -96,6 +96,11 @@ class Address: NSObject, NSCoding {
             
         })
     }
+    
+    func dictRepresentation() -> [String: Any] {
+        return ["id" : id, "desc" : desc, "street1" : street1, "street2" : street2,
+                "city" : city, "state" : state, "zip" : zip]
+    }
 }
 
 

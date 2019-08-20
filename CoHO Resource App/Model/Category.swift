@@ -49,5 +49,5 @@ class Category: OrganizationalLevel, NSCoding {
 				self.resources.append(resource)
 			}
 		}
-	}
+    }
 }

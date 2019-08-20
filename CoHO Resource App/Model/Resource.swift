@@ -161,4 +161,45 @@ class Resource: NSObject, NSCoding {
 		}
 		return resources
 	}
+    
+    func dictRepresentation() -> [String: Any] {
+        
+//        var id: Int
+//        var name: String
+//        var tags: String = ""
+//
+//        var categoryIDs = [Int]()
+//        var countyIDs = [Int]()
+//        var categories = [Category]()
+//        var counties = [County]()
+//        var locations = [Address]()
+//        var contact = [Contact]()
+//
+//        var desc: String = ""
+//        var services: String = ""
+//        var documentation: String = ""
+//        var hours: String = ""
+        
+        var locationDicts = [[String: Any]]()
+        for location in self.locations {
+            locationDicts.append(location.dictRepresentation())
+        }
+        
+        var contactDicts = [[String: Any]]()
+        for contact in self.contact {
+            contactDicts.append(contact.dictRepresentation())
+        }
+        
+        return ["id" : id,
+                "name" : name,
+                "tags" : tags,
+                "locations" : locationDicts,
+                "contact" : contactDicts,
+                "categories" : categoryIDs,
+                "counties" : countyIDs,
+                "description" : desc,
+                "services" : services,
+                "documentation" : documentation,
+                "hours" : hours]
+    }
 }

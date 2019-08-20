@@ -129,7 +129,7 @@ class API {
 			} else {
 				if let data = CohoData.loadData() {
 					delegate.cohoData = data
-					self.closeLoadWindow(delegate: delegate)
+                    self.closeLoadWindow(delegate: delegate, completion: {delegate.cohoData?.exportJSON(delegate: delegate)})
 				} else {
 					delegate.cohoData = CohoData(categories: [], resources: [], counties: [])
 					self.closeLoadWindow(delegate: delegate, completion: {self.sendOfflineAlert(delegate: delegate)})
@@ -148,7 +148,7 @@ class API {
 							if let refreshControl = categoriesView.refreshControl {
 								refreshControl.endRefreshing()
 							}
-						}
+                        }
 					}
 				}
 				

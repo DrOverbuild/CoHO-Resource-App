@@ -63,6 +63,10 @@ class Contact: NSObject, NSCoding {
 		self.name = name
 		self.value = value
 	}
+    
+    func dictRepresentation() -> [String: Any] {
+        return ["id" : id, "typeInt" : type.rawValue, "name" : name, "value" : value]
+    }
 }
 
 enum ContactType: Int {

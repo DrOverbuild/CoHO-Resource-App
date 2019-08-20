@@ -42,4 +42,11 @@ class OrganizationalLevel: NSObject {
 		self.id = id
 		self.icon = icon
 	}
+    
+    func dictRepresentation() -> [String: Any] {
+        return ["id" : id,
+                "name" : name,
+                "description" : itemDesc,
+                "icon" : icon]
+    }
 }
