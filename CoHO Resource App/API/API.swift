@@ -9,6 +9,8 @@
 import UIKit
 
 class API {
+    let baseUrl = "https://cohoresource.app/api"
+    
 	/// Returns all categories from server
 	func loadAllCategories(fromDict dict: [String:Any]?) -> [Category] {
 		var categories = [Category]()
@@ -89,7 +91,7 @@ class API {
 			
 		}
 		
-		let url = URL(string: "https://cohoresourcebook.org/api/" + url)
+		let url = URL(string: baseUrl + url)
 		URLSession.shared.dataTask(with:url!) {(data, response, error) in
 			guard let data = data, error == nil else {
 				// offline
@@ -113,7 +115,7 @@ class API {
 	}
 	
 	func loadDataFromServer(delegate: AppDelegate) {
-		fetchJSON(url: "fulldatabase.php", completion: {dictOp in
+		fetchJSON(url: "fulldatabase", completion: {dictOp in
 			if let dict = dictOp {
 				let categories = self.loadAllCategories(fromDict: dict)
 				let resources = self.loadAllResources(fromDict: dict)
