@@ -14,16 +14,15 @@ class InitialViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		loadingAlert = UIAlertController(title: nil, message: "Loading data...", preferredStyle: .alert)
-		
-		let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-		loadingIndicator.hidesWhenStopped = true
-		loadingIndicator.style = UIActivityIndicatorView.Style.gray
-		loadingIndicator.startAnimating();
-		
-		loadingAlert.view.addSubview(loadingIndicator)
-		
+        
+        loadingAlert = UIAlertController(title: nil, message: "Loading data...", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating();
+        
+        loadingAlert.view.addSubview(loadingIndicator)
 		
 		
 			//			bar.barTintColor = UIColor(displayP3Red: 30/255, green: 50/255, blue: 49/255, alpha: 1.0)
@@ -37,7 +36,12 @@ class InitialViewController: UITabBarController {
 	}
     
 	override func viewDidAppear(_ animated: Bool) {
-		present(self.loadingAlert, animated: true, completion: nil)
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+            print("we found the delegeate")
+            if delegate.loadingData {
+                present(self.loadingAlert, animated: true, completion: nil)
+            }
+        }
 	}
 	
     /*

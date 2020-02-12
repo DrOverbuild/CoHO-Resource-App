@@ -142,6 +142,7 @@ class API {
 	}
 	
 	func closeLoadWindow(delegate: AppDelegate, completion: (() -> Void)? = nil) {
+        delegate.loadingData = false
 		DispatchQueue.main.async {
 			if let viewController = delegate.window?.rootViewController as? InitialViewController {
 				// end refreshing
@@ -168,7 +169,7 @@ class API {
                         countiesView.tableView.reloadData()
                     }
                 }
-			}
+            }
 		}
 	}
 	
