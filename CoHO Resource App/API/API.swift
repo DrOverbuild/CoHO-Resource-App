@@ -55,7 +55,7 @@ class API {
 		return resources
 	}
 	
-	func fetchJSON(url: String, completion: @escaping ([String:Any]?)->()) {
+	func fetchJSON(urlStr: String, completion: @escaping ([String:Any]?)->()) {
 		var dictionary: [String:Any]?
 		
 		// check last updated
@@ -90,9 +90,10 @@ class API {
 			}
 			
 		}
-		
-		let url = URL(string: baseUrl + url)
-		URLSession.shared.dataTask(with:url!) {(data, response, error) in
+        
+		let url = URL(string: "\(baseUrl)/\(urlStr)")!
+        
+		URLSession.shared.dataTask(with:url) {(data, response, error) in
 			guard let data = data, error == nil else {
 				// offline
 				return completion(nil)
@@ -115,7 +116,7 @@ class API {
 	}
 	
 	func loadDataFromServer(delegate: AppDelegate) {
-		fetchJSON(url: "fulldatabase", completion: {dictOp in
+		fetchJSON(urlStr: "fulldatabase", completion: {dictOp in
 			if let dict = dictOp {
 				let categories = self.loadAllCategories(fromDict: dict)
 				let resources = self.loadAllResources(fromDict: dict)
@@ -186,7 +187,7 @@ class API {
 	}
 	
 	func sendReport(resource: String, feedbackType: String, comments: String) {
-		var request = URLRequest(url: URL(string: "https://cohoresourcebook.org/api/feedback.php")!)
+		var request = URLRequest(url: URL(string: "\(baseUrl)/feedback")!)
 		request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 		request.httpMethod = "POST"
 		let parameters: [String: Any] = [

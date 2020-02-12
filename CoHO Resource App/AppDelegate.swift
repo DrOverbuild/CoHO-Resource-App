@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         UIApplication.shared.statusBarStyle = .lightContent
 		
 		self.api = API();
-		self.api.loadDataFromServer(delegate: self)
+ 		self.api.loadDataFromServer(delegate: self)
 
         return true
     }

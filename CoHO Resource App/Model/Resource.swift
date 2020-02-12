@@ -90,12 +90,18 @@ class Resource: NSObject, NSCoding {
 			self.desc = desc
 		}
 		
-		if let categoryIDs = json["categories"] as? [Int] {
-			self.categoryIDs = categoryIDs
+        if let categoryIDs = json["categories"] as? [String:Int] {
+            for (key, value) in categoryIDs {
+                self.categoryIDs.append(value)
+            }
+//            self.categoryIDs = categoryIDs.values
 		}
 		
-		if let countyIDs = json["counties"] as? [Int] {
-			self.countyIDs = countyIDs
+        if let countyIDs = json["counties"] as? [String:Int] {
+            for (key, value) in countyIDs {
+                self.countyIDs.append(value)
+            }
+            //			self.countyIDs = countyIDs
 		}
 		
 		if let locationsJson = json["locations"] as? [Any] {
