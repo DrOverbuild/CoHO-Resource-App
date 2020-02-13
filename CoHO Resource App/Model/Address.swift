@@ -60,9 +60,12 @@ class Address: NSObject, NSCoding {
 	}
 	
 	init? (json: [String:Any]) {
-		guard let id = json["id"] as? Int, let desc = json["description"] as? String,
-			let street1 = json["street1"] as? String, let street2 = json["street2"] as? String,
-			let city = json["city"] as? String, let state = json["state"] as? String,
+		guard let id = json["id"] as? Int,
+            let desc = json["desc"] as? String,
+			let street1 = json["street1"] as? String,
+            let street2 = json["street2"] as? String,
+			let city = json["city"] as? String,
+            let state = json["state"] as? String,
 			let zip = json["zip"] as? String
 			else {
 				return nil

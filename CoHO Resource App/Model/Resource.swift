@@ -104,9 +104,9 @@ class Resource: NSObject, NSCoding {
             //			self.countyIDs = countyIDs
 		}
 		
-		if let locationsJson = json["locations"] as? [Any] {
-			for locationArr in locationsJson {
-				if let locationJSON = locationArr as? [String:Any] {
+        if let locationsJson = json["locations"] as? [String:Any] {
+			for (_,locationArrVal) in locationsJson {
+				if let locationJSON = locationArrVal as? [String:Any] {
 					if let location = Address(json: locationJSON) {
 						self.locations.append(location)
 					}
@@ -114,9 +114,9 @@ class Resource: NSObject, NSCoding {
 			}
 		}
 		
-		if let contactsJSON = json["contact"] as? [Any] {
-			for contactArr in contactsJSON {
-				if let contactJSON = contactArr as? [String:Any] {
+        if let contactsJSON = json["contact"] as? [String:Any] {
+            for (_,contactVal) in contactsJSON {
+				if let contactJSON = contactVal as? [String:Any] {
 					if let contact = Contact(json: contactJSON) {
 						self.contact.append(contact)
 					}

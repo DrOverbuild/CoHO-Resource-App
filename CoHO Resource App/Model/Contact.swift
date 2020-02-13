@@ -46,7 +46,7 @@ class Contact: NSObject, NSCoding {
 	init?(json: [String:Any]) {
 		// validate json
 		guard let id = json["id"] as? Int,
-			let typeInt = json["type"] as? Int,
+			let typeInt = json["typeInt"] as? Int,
 			let name = json["name"] as? String,
 			let value = json["value"] as? String
 		else {
