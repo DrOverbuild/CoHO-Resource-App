@@ -56,19 +56,21 @@ class SearchResultsTableViewController: UITableViewController {
             return tableView.dequeueReusableCell(withIdentifier: "separator", for: indexPath)
         }
         
+        let resource = filteredResources[indexPath.row / 2]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CategoryCellTableViewCell
         
-        cell.catNameLabel.text = filteredResources[indexPath.row / 2].name
+        cell.catNameLabel.text = resource.name
         
-        if let image = filteredResources[indexPath.row / 2].categories.first?.iconImage {
+        if let image = resource.categories.first?.iconImage {
             cell.iconView.image = image
             
         }
         
         var catstr = ""
         
-        for category in filteredResources[indexPath.row / 2].categories {
-            if (indexPath.row / 2 < filteredResources[indexPath.row / 2].categories.count - 1) {
+        for (index, category) in resource.categories.enumerated() {
+            if (index < resource.categories.count - 1) {
                 catstr = "\(catstr)\(category.name), "
             } else {
                 catstr = "\(catstr)\(category.name)"
@@ -77,7 +79,7 @@ class SearchResultsTableViewController: UITableViewController {
         
         cell.itemsLabel.text = catstr
         
-        cell.resource = filteredResources[indexPath.row / 2]
+        cell.resource = resource
         
         return cell
     }
