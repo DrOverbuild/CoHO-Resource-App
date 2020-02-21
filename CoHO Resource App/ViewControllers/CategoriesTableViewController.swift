@@ -10,7 +10,7 @@ import UIKit
 
 class CategoriesTableViewController: UITableViewController {
 	
-	var categories: [Category]?
+    var categories: [Category]?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +31,8 @@ class CategoriesTableViewController: UITableViewController {
 		
 		tableView.estimatedRowHeight = 100
 		tableView.rowHeight = UITableView.automaticDimension
-		
-		categories = (UIApplication.shared.delegate as? AppDelegate)?.cohoData?.categories
+        
+        categories = (UIApplication.shared.delegate as? AppDelegate)?.cohoData?.categories
     }
     
 	@objc private func updateData(_ sender: Any) {

@@ -91,7 +91,6 @@ class SearchResultsTableViewController: UITableViewController {
         
         // Set up the detail view controller to push.
         let resourceVC = ResourceTableViewController.vcForResource(selectedResource)
-        resourceVC.buildCells()
         resourceVC.navigationItem.title = selectedResource.name
         
         self.presentingViewController?.navigationController?.pushViewController(resourceVC, animated: true)

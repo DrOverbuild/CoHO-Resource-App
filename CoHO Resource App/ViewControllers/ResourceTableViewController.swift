@@ -31,6 +31,15 @@ class ResourceTableViewController: UITableViewController {
 		
 		tableView.rowHeight = UITableView.automaticDimension
 	}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            if self.cells.count == 0 {
+                self.buildCells()
+                self.tableView.reloadData()
+            }
+        }
+    }
 	
 	func buildCells() {
 		cells = []
@@ -140,10 +149,20 @@ class ResourceTableViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		// #warning Incomplete implementation, return the number of rows
-		return cells.count
+        return cells.count == 0 ? 1 : cells.count
 	}
 	
+//    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
+    
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if cells.count == 0 {
+            let newCell = tableView.dequeueReusableCell(withIdentifier: "loadingCell") as! LoadingTableViewCell
+            newCell.activityIndicator.startAnimating()
+            return newCell
+        }
+        
 		return cells[indexPath.row]
 	}
 	

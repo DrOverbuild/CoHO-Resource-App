@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A405139523FDDE1C00572C1B /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A405139423FDDE1C00572C1B /* SearchResultsTableViewController.swift */; };
+		A405139723FF7B1600572C1B /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A405139623FF7B1600572C1B /* LoadingTableViewCell.swift */; };
 		A4089D21221DF64D001936FF /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4089D20221DF64D001936FF /* Auth.swift */; };
 		A4089D23221DF9A3001936FF /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4089D22221DF9A3001936FF /* Util.swift */; };
 		A40C3D04216C04FE006E1490 /* appicon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A40C3D03216C04FE006E1490 /* appicon.xcassets */; };
@@ -56,6 +57,7 @@
 		89F7E80CD0234DB47004DE6A /* Pods-CoHO Resource App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoHO Resource App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoHO Resource App/Pods-CoHO Resource App.debug.xcconfig"; sourceTree = "<group>"; };
 		9691E0B244DF90FABCBD4060 /* Pods-CoHO Resource App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoHO Resource App.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoHO Resource App/Pods-CoHO Resource App.release.xcconfig"; sourceTree = "<group>"; };
 		A405139423FDDE1C00572C1B /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
+		A405139623FF7B1600572C1B /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		A4089D20221DF64D001936FF /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		A4089D22221DF9A3001936FF /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		A40C3D03216C04FE006E1490 /* appicon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = appicon.xcassets; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				A4B7EB8D21A8859700350852 /* InformationTableViewCell.swift */,
 				A4B7EB8F21A885A600350852 /* LocationTableViewCell.swift */,
 				A468DA8A220669EC0075E9F4 /* ReportTableViewCell.swift */,
+				A405139623FF7B1600572C1B /* LoadingTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				A405139523FDDE1C00572C1B /* SearchResultsTableViewController.swift in Sources */,
 				A4B4AF392183AF2800741055 /* CategoryCellTableViewCell.swift in Sources */,
 				A4089D21221DF64D001936FF /* Auth.swift in Sources */,
+				A405139723FF7B1600572C1B /* LoadingTableViewCell.swift in Sources */,
 				A4135387216C4AF600D511E1 /* Category.swift in Sources */,
 				A4EF43842190ED0200625D24 /* ResourceListTableViewController.swift in Sources */,
 				A413538D216C4C0B00D511E1 /* Contact.swift in Sources */,

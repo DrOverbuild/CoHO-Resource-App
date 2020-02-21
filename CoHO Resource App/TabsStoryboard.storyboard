@@ -858,6 +858,60 @@
                                 <color key="backgroundColor" red="0.35373569542253519" green="0.1347779467201301" blue="0.11254695899144594" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.95686274510000002" green="0.90588235289999997" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="loadingCell" rowHeight="60" id="Gct-kW-70X" customClass="LoadingTableViewCell" customModule="CoHO_Resource_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="434" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gct-kW-70X" id="HUx-Dr-bV3">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RI1-mp-Qmg">
+                                            <rect key="frame" x="124" y="15.5" width="127" height="29"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2L-am-KW4">
+                                                    <rect key="frame" x="36" y="0.0" width="83" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="83" id="1kY-6P-wCa"/>
+                                                        <constraint firstAttribute="height" constant="29" id="i8e-g6-Fqv"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.95686274510000002" green="0.90588235289999997" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Djm-RH-laQ">
+                                                    <rect key="frame" x="8" y="4" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="VjB-U8-Kv5"/>
+                                                        <constraint firstAttribute="height" constant="20" id="gbN-j9-1aa"/>
+                                                    </constraints>
+                                                    <color key="color" red="0.95686274510000002" green="0.90588235289999997" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="O2L-am-KW4" firstAttribute="leading" secondItem="Djm-RH-laQ" secondAttribute="trailing" constant="8" id="2W6-Gh-Uae"/>
+                                                <constraint firstItem="Djm-RH-laQ" firstAttribute="top" secondItem="RI1-mp-Qmg" secondAttribute="top" constant="4" id="8eZ-js-sk9"/>
+                                                <constraint firstAttribute="bottom" secondItem="O2L-am-KW4" secondAttribute="bottom" id="EC5-li-aTr"/>
+                                                <constraint firstAttribute="trailing" secondItem="O2L-am-KW4" secondAttribute="trailing" constant="8" id="L7D-pc-VeI"/>
+                                                <constraint firstAttribute="bottom" secondItem="Djm-RH-laQ" secondAttribute="bottom" constant="5" id="NwY-m7-lFC"/>
+                                                <constraint firstItem="O2L-am-KW4" firstAttribute="top" secondItem="RI1-mp-Qmg" secondAttribute="top" id="ZtC-YY-qtW"/>
+                                                <constraint firstAttribute="width" constant="127" id="aJG-jx-Mll"/>
+                                                <constraint firstItem="Djm-RH-laQ" firstAttribute="leading" secondItem="RI1-mp-Qmg" secondAttribute="leading" constant="8" id="kTT-Jz-dwo"/>
+                                                <constraint firstAttribute="height" constant="29" id="y7m-dZ-a8E"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RI1-mp-Qmg" firstAttribute="centerY" secondItem="HUx-Dr-bV3" secondAttribute="centerY" id="FdJ-pL-4dC"/>
+                                        <constraint firstItem="RI1-mp-Qmg" firstAttribute="centerX" secondItem="HUx-Dr-bV3" secondAttribute="centerX" id="Unc-BH-9MC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.95686274510000002" green="0.90588235289999997" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="activityIndicator" destination="Djm-RH-laQ" id="sJp-bU-uA6"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="AKv-i3-eyV" id="Kj3-FZ-00b"/>

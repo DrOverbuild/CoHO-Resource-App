@@ -121,7 +121,7 @@ class ResourceListTableViewController: UITableViewController {
             if let destination = segue.destination as? ResourceTableViewController {
                 destination.resource = cell.resource
                 destination.navigationItem.title = cell.resource.name
-                destination.buildCells()
+//                destination.buildCells()
             }
         }
     }
