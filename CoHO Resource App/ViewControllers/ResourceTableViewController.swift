@@ -164,4 +164,13 @@ class ResourceTableViewController: UITableViewController {
 			reportCell.onTap(viewController: self)
 		}
 	}
+    
+    class func vcForResource(_ resource: Resource) -> ResourceTableViewController {
+        let storyboard = UIStoryboard(name: "TabsStoryboard", bundle: nil)
+
+        let viewController =
+            storyboard.instantiateViewController(withIdentifier: "resourceVC") as! ResourceTableViewController
+        viewController.resource = resource
+        return viewController
+    }
 }

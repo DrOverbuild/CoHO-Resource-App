@@ -11,9 +11,9 @@ import UIKit
 class SearchTableViewController: UITableViewController {
 	
 	var searchController: UISearchController!
-	
-	var filteredResources = [Resource]()
-	
+    
+    var searchResultsController: SearchResultsTableViewController!
+		
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -23,142 +23,49 @@ class SearchTableViewController: UITableViewController {
 		let imageView = UIImageView(image: backgroundImage)
 		self.tableView.backgroundView = imageView
 		imageView.contentMode = .scaleAspectFill
-		tableView.backgroundColor = UIColor.clear
-		tableView.tableFooterView = UIView(frame: CGRect.zero)
 		
-		self.tableView.separatorStyle = .none
-		
-		tableView.estimatedRowHeight = 100
-		tableView.rowHeight = UITableView.automaticDimension
-		
+        tableView.separatorStyle = .none
+        self.tableView.keyboardDismissMode = .onDrag
+        
 		buildSearchBar()
     }
 	
 	func buildSearchBar() {
+		// initialize SearchResultsTableViewController
+        if #available(iOS 13.0, *) {
+            self.searchResultsController = self.storyboard?.instantiateViewController(identifier: "searchResultsTableViewController") as? SearchResultsTableViewController
+        } else {
+            self.searchResultsController = self.storyboard?.instantiateViewController(withIdentifier: "searchResultsTableViewController") as? SearchResultsTableViewController
+        }
+        
+        // send navigation controller because the searchResultsController has no nav controller
+        searchResultsController.navCon = self.navigationController
+        searchController = UISearchController(searchResultsController: self.searchResultsController)
 		
-		searchController = UISearchController(searchResultsController: nil)
-		
+        searchController.obscuresBackgroundDuringPresentation = false
+//        searchController.searchBar.delegate = self
+        
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
-		searchController.searchResultsUpdater = self
+        searchController.searchResultsUpdater = self.searchResultsController
 	}
 
     // MARK: - Table view data source
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if indexPath.row % 2 == 1 {
-			return tableView.dequeueReusableCell(withIdentifier: "separator", for: indexPath)
-		}
-		
-		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CategoryCellTableViewCell
-		
-		cell.catNameLabel.text = filteredResources[indexPath.row / 2].name
-		
-		if let image = filteredResources[indexPath.row / 2].categories.first?.iconImage {
-			cell.iconView.image = image
-			
-		}
-		
-		var catstr = ""
-		
-		for category in filteredResources[indexPath.row / 2].categories {
-			if (indexPath.row / 2 < filteredResources[indexPath.row / 2].categories.count - 1) {
-				catstr = "\(catstr)\(category.name), "
-			} else {
-				catstr = "\(catstr)\(category.name)"
-			}
-		}
-		
-		cell.itemsLabel.text = catstr
-		
-		cell.resource = filteredResources[indexPath.row / 2]
-		
-		return cell
+        return tableView.dequeueReusableCell(withIdentifier: "separator", for: indexPath)
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return filteredResources.count * 2 - 1
+		return 0
 	}
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if indexPath.row % 2 == 1 {
-			return 10
-		}
-		
-		return 100
-	}
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if let cell = sender as? CategoryCellTableViewCell {
-			if let destination = segue.destination as? ResourceTableViewController {
-				destination.resource = cell.resource
-				destination.navigationItem.title = cell.resource.name
-				destination.buildCells()
-			}
-		}
-	}
-	
-	func searchBarIsEmpty() -> Bool {
-		// Returns true if the text is empty or nil
-		return searchController.searchBar.text?.isEmpty ?? true
-	}
-	
-	func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-		guard let resources = (UIApplication.shared.delegate as? AppDelegate)?.cohoData?.resources else {
-			return
-		}
-
-		// search controller clears text when tapping out of the search bar
-		if !searchController.isActive {
-			return
-		}
-		
-		let lowerST = searchText.lowercased()
-		
-		filteredResources = resources.filter({( resource : Resource ) -> Bool in
-			// check category
-			for category in resource.categories {
-				if category.name.lowercased().contains(lowerST) {
-					return true
-				}
-			}
-			
-			// check counties
-			for county in resource.counties {
-				if county.name.lowercased().contains(lowerST) {
-					return true
-				}
-			}
-			
-			// check name
-			if resource.name.lowercased().contains(lowerST) {
-				return true
-			}
-			
-			// check tags
-			if resource.tags.lowercased().contains(lowerST) {
-				return true
-			}
-			
-			// check services
-			if resource.services.lowercased().contains(lowerST) {
-				return true
-			}
-			
-			// check description
-			if resource.desc.lowercased().contains(lowerST) {
-				return true
-			}
-			
-			return false
-		})
-		
-		tableView.reloadData()
+		return 0
 	}
 }
 
-extension SearchTableViewController: UISearchResultsUpdating {
-	// MARK: - UISearchResultsUpdating Delegate
-	func updateSearchResults(for searchController: UISearchController) {
-		filterContentForSearchText(searchController.searchBar.text!)
-	}
-}
+//extension SearchTableViewController: UISearchBarDelegate {
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.resignFirstResponder()
+//    }
+//}
